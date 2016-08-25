@@ -5,7 +5,13 @@
   "main": "server/app.js",
   "scripts": {
     "start": "node server/app.js",
+    "postinstall": "webpack",
+    "prod": "NODE_ENV='production' npm start",
+    "build": "NODE_ENV='production' webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "6.4.0"
   },
   "keywords": [],
   "author": "",
@@ -27,9 +33,7 @@
     "react-bootstrap": "^0.30.3",
     "react-dom": "^15.3.0",
     "react-router": "^2.6.1",
-    "uuid": "^2.0.2"
-  },
-  "devDependencies": {
+    "uuid": "^2.0.2",
     "babel-cli": "^6.11.4",
     "babel-core": "^6.13.2",
     "babel-loader": "^6.2.4",

@@ -9,6 +9,8 @@ import Animal from './components/Animal'
 import Owners from './components/Owners'
 import AnimalDisplay from './components/AnimalDisplay'
 import AddAnimal from './components/AddAnimal'
+import AddOwners from './components/AddOwners'
+import AnimalOwners from './components/AnimalOwners'
 
 render(
   <Router history={browserHistory}>
@@ -17,6 +19,8 @@ render(
       <Route path="AnimalDisplay" component={AnimalDisplay} />
       <Route path="Owners" component={Owners} />
       <Route path="AddAnimal" component={AddAnimal} />
+      <Route path="AddOwners" component={AddOwners} />
+      <Route path="AnimalOwners" component={AnimalOwners} />
     </Route>
   </Router>,
   document.getElementById('root')

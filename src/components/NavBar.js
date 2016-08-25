@@ -27,6 +27,8 @@ export default class NavBar extends Component {
       <li><Link to="AnimalDisplay">AnimalDisplay</Link></li>
       <li><Link to="AddAnimal">AddAnimal</Link></li>
       <li><Link to="Owners">Owners</Link></li>
+      <li><Link to="AddOwners">AddOwners</Link></li>
+      <li><Link to="AnimalOwners">AnimalOwners</Link></li>
       </ul>
       </div>
       </div>

@@ -23,7 +23,7 @@ const ServerActions = {
     })
   },
 
-
+////////////////////////////////////
 
   receiveOwners(owners) {
     AppDispatcher.dispatch({
@@ -44,27 +44,33 @@ const ServerActions = {
     })
   },
 
+/////////////////////////////////
 
 
+  // receiveOneAnimal(animal) {
+  //   AppDispatcher.dispatch({
+  //     type: 'RECEIVE_ONE_ANIMAL',
+  //     id
+  //   })
+  // },
 
-  receiveOneAnimal(animal) {
+  ///////////////////////////////
+  getAnimalOwners(id) {
     AppDispatcher.dispatch({
-      type: 'RECEIVE_ONE_ANIMAL',
+      type: "GET_ANIMALOWNERS",
       id
     })
   },
-  getOneScraper(obj) {
-    AppDispatcher.dispatch({
-      type: "GET_ONE_SCRAPER",
-      obj
-    })
-  },
-  getScrapers(obj) {
-    AppDispatcher.dispatch({
-      type: "GET_SCRAPERS",
-      obj
-    })
-  }
+
+
+
+  /////////////////////////////////
+  // getScrapers(obj) {
+  //   AppDispatcher.dispatch({
+  //     type: "GET_SCRAPERS",
+  //     obj
+  //   })
+  // }
 }
 
 export default ServerActions

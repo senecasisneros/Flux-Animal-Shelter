@@ -4,6 +4,7 @@ import AppDispatcher from '../AppDispatcher'
 console.log('AnimalStore');
 
 let _animal = [];
+let _animalOwners;
 
 class AnimalStore extends EventEmitter {
   constructor() {
@@ -41,15 +42,23 @@ class AnimalStore extends EventEmitter {
         this.emit("CHANGE");
         break;
 
-        case 'GET_ONE_SCRAPER':
-        _animalLyric =  action.obj;
+
+
+        case 'GET_ANIMALOWNERS':
+        _animalOwners = action.obj;
         this.emit("CHANGE");
         break;
 
-        case 'GET_SCRAPERS':
-        _links =  action.obj;
-        this.emit("CHANGE");
-        break;
+
+        // case 'GET_ONE_SCRAPER':
+        // _animalLyric =  action.obj;
+        // this.emit("CHANGE");
+        // break;
+        //
+        // case 'GET_SCRAPERS':
+        // _links =  action.obj;
+        // this.emit("CHANGE");
+        // break;
       }
     });
   }
@@ -65,6 +74,13 @@ class AnimalStore extends EventEmitter {
   getAll() {
     return _animal;
   }
+  getAnimalOwners() {
+    return _animalOwners;
+  }
+  // getAnimalId() {
+  //   return _animalOwners.id;
+  // }
+
 }
 
 export default new AnimalStore();

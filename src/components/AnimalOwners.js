@@ -1,27 +1,23 @@
 import React, { Component } from 'react';
 import AnimalStore from '../stores/AnimalStore'
 import {Table} from 'react-bootstrap'
-
-
-import Animal from './Animal';
 import AnimalActions from '../actions/AnimalActions';
 
-export default class AnimalDisplay extends Component {
+
+export default class AnimalOwners extends Component {
   constructor(){
     super();
     this.state = {
       animals: ''
     }
-    // this.state = {
-    //   animals: AnimalStore.getAll()
-    // }
 
     this._onChange = this._onChange.bind(this);
-    this.deleteAnimal = this.deleteAnimal.bind(this);
+    // this.deleteOwner = this.deleteOwner.bind(this);
   }
 
   componentDidMount() {
-    AnimalActions.getAllAnimals();
+    // AnimalActions.getAnimalOwners(this.state.id);
+    AnimalActions.getAnimalOwners();
     AnimalStore.startListening(this._onChange);
   }
   componentWillUnmount() {
@@ -29,12 +25,15 @@ export default class AnimalDisplay extends Component {
   }
 
   _onChange() {
-    this.setState({ animals: AnimalStore.getAll() });
+    this.setState({
+      animals: AnimalStore.getAnimalOwners()
+      // id: AnimalStore.getAnimalId()
+    });
   }
 
-  deleteAnimal(id){
-    AnimalActions.deleteAnimal(id);
-    }
+  // deleteOwner(id){
+  //   AnimalActions.deleteOwner(id);
+  //   }
   render() {
     if (this.state.animals.length !== 0) {
           let trs = this.state.animals.map((val ,index) => {
@@ -42,14 +41,10 @@ export default class AnimalDisplay extends Component {
         return (
           <tr key={index + 1}>
             <td>{val.name}</td>
-            <td>{val.type}</td>
-            <td>{val.age}</td>
-            {/* <td>{val.owner}</td> */}
+            <td>{val.email}</td>
+            <td>{val.phoneNumber}</td>
             <td>
-            <img width="250"  height="250"src={val.image}/>
-            </td>
-            <td>
-          <button type="button" className="btn btn-danger btn-xs" onClick={this.deleteAnimal.bind(null, val._id)}>Delete</button>
+          <button type="button" className="btn btn-danger btn-xs" onClick={this.deleteOwner.bind(null, val._id)}>Delete</button>
           </td>
           </tr>
         )
@@ -60,10 +55,8 @@ export default class AnimalDisplay extends Component {
             <thead>
               <tr>
                 <th>Name</th>
-                <th>Type</th>
-                <th>Age</th>
-                {/* <th>Owner</th> */}
-                <th>Image</th>
+                <th>Email</th>
+                <th>Phone</th>
                 <th>Delete</th>
               </tr>
             </thead>

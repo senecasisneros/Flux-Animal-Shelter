@@ -44,27 +44,36 @@ const API = {
     .then(ServerActions.deleteOwner(id))
     .catch(console.error);
   },
+//////////////////////////////////////
 
 
+  // getOneAnimal(id) {
+  //   axios.get('/api/animals/:id')
+  //   .then(res => res.data)
+  //   .then(ServerActions.getOneAnimal)
+  //   .catch(console.error)
+  // },
 
-  getOneAnimal(id) {
-    axios.get('/api/animals/:id')
+
+  /////////////////////////////////////
+
+
+  getAnimalOwners(id) {
+      axios.get(`/api/animals/${id}`)
     .then(res => res.data)
-    .then(ServerActions.getOneAnimal)
-    .catch(console.error)
-  },
-  getOneScraper(obj) {
-    axios.post('/api/scraper', obj)
-    .then(res => res.data)
-    .then(ServerActions.getOneScraper)
-    .catch(console.error)
-  },
-  getScrapers(obj) {
-    axios.post('/api/scraper/links', obj)
-    .then(res => res.data)
-    .then(ServerActions.getScrapers)
+    .then(ServerActions.getAnimalOwners(id))
     .catch(console.error)
   }
+
+
+
+  ///////////////////////////
+  // getScrapers(obj) {
+  //   axios.post('/api/scraper/links', obj)
+  //   .then(res => res.data)
+  //   .then(ServerActions.getScrapers)
+  //   .catch(console.error)
+  // }
 }
 
 export default API;

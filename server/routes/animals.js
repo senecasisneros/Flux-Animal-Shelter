@@ -18,7 +18,7 @@ router.route('/')
   });
 
 ///////////////////////////////////////////////////////
-  router.get('/:id', (req, res) => {
+router.get('/:id', (req, res) => {
   Animal.findById(req.params.id, (err, animal) => {
     if(err || !animal) {
       return res.status(400).send(err || "Animal not found");

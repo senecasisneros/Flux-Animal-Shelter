@@ -25,20 +25,24 @@ const AnimalActions = {
 ///////////////////////////////
 
 
+getAnimalOwners(id) {
+  console.log('actionsid:', id)
+  API.getAnimalOwners(id);
+},
 
 
-
-  getOneAnimals(id) {
-    API.getOneAnimals(id);
-  },
-
-
-  getOneScraper(obj) {
-    API.getOneScraper(obj);
-  },
-  getScrapers(obj) {
-    API.getScrapers(obj);
-  }
+////////////////////////////////////
+  // getOneAnimals(id) {
+  //   API.getOneAnimals(id);
+  // },
+  //
+  //
+  // getOneScraper(obj) {
+  //   API.getOneScraper(obj);
+  // },
+  // getScrapers(obj) {
+  //   API.getScrapers(obj);
+  // }
 }
 
 export default AnimalActions

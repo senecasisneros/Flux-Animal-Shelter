@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import OwnerStore from '../stores/OwnerStore'
 import {Table} from 'react-bootstrap'
-
 import AnimalActions from '../actions/AnimalActions';
+
 
 export default class Owners extends Component {
   constructor(){

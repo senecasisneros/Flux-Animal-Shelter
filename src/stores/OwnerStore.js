@@ -3,6 +3,7 @@ import AppDispatcher from '../AppDispatcher'
 
 
 let _owner = [];
+let _animalOwners = [];
 
 class OwnerStore extends EventEmitter {
   constructor() {
@@ -26,10 +27,6 @@ class OwnerStore extends EventEmitter {
 
         case 'CREATE_OWNER':
         var { owner } = action;
-
-        // owner._id = uuid();
-        // owner.createdAt = Date.now();
-
         _owner.push(owner);
         this.emit('CHANGE');
         break;
@@ -39,11 +36,14 @@ class OwnerStore extends EventEmitter {
         _owner = _owner.filter(i => i._id !== id);
         this.emit("CHANGE");
         break;
+/////////////////////////////////////////////
 
-        case 'GET_ONE_SCRAPER':
-        _ownerLyric =  action.obj;
+
+        case 'GET_ANIMALOWNERS':
+        _animalOwners =  action.obj;
         this.emit("CHANGE");
         break;
+///////////////////////////////////////
 
         case 'GET_SCRAPERS':
         _links =  action.obj;
@@ -64,6 +64,7 @@ class OwnerStore extends EventEmitter {
   getAllOwners() {
     return _owner;
   }
+
 }
 
 export default new OwnerStore();
