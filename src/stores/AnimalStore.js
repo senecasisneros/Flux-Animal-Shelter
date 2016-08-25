@@ -45,7 +45,8 @@ class AnimalStore extends EventEmitter {
 
 
         case 'GET_ANIMALOWNERS':
-        _animalOwners = action.obj;
+        var { id } = action;
+        // _animalOwners = action.obj;
         this.emit("CHANGE");
         break;
 
@@ -72,6 +73,7 @@ class AnimalStore extends EventEmitter {
   }
 
   getAll() {
+    console.log('_animal:', _animal)
     return _animal;
   }
   getAnimalOwners() {

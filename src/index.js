@@ -20,7 +20,7 @@ render(
       <Route path="Owners" component={Owners} />
       <Route path="AddAnimal" component={AddAnimal} />
       <Route path="AddOwners" component={AddOwners} />
-      <Route path="AnimalOwners" component={AnimalOwners} />
+      <Route path="/AnimalOwners/:id" component={AnimalOwners} />
     </Route>
   </Router>,
   document.getElementById('root')

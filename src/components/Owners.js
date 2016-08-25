@@ -38,6 +38,7 @@ export default class Owners extends Component {
             <td>{val.name}</td>
             <td>{val.email}</td>
             <td>{val.phoneNumber}</td>
+            <td>{val.pet}</td>
             <td>
           <button type="button" className="btn btn-danger btn-xs" onClick={this.deleteOwner.bind(null, val._id)}>Delete</button>
           </td>
@@ -52,6 +53,7 @@ export default class Owners extends Component {
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
+                <th>Pet</th>
                 <th>Delete</th>
               </tr>
             </thead>

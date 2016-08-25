@@ -9,7 +9,7 @@ router.route('/')
   .get((req, res) => {
     Animal.find({}, (err, animals) => {
       res.status(err ? 400 : 200).send(err || animals);
-    });
+    }).populate('owner');
   })
   .post((req, res) => {
     Animal.create(req.body, (err, newAnimal) => {

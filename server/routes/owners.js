@@ -29,23 +29,21 @@ Owner.findById(req.params.id, (err, owner) => {
 
 /////////////////////////////////////////////
 
-router.put('/:ownerId/addOwner/:animalId', (req, res) => {
+router.put('/:ownerId/addAnimal/:animalId', (req, res) => {
 Owner.findById(req.params.ownerId, (err, owner) => {
   if(err || !owner) {
     return res.status(400).send(err || "Owner not found");
   }
 
-  let ownerId = req.params.ownerId;
+  let animalId = req.params.animalId;
 
-  owner.owner = ownerId;
+  owner.animal = animalId;
 
   owner.save((err, savedOwner) => {
     return res.status(400).send(err || savedOwner);
   })
 })
 })
-
-
 
 ////////////////////////////////////////////////////////////////
 

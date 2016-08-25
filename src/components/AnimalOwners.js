@@ -25,15 +25,11 @@ export default class AnimalOwners extends Component {
   }
 
   _onChange() {
-    this.setState({
-      animals: AnimalStore.getAnimalOwners()
+    this.setState({animals: AnimalStore.getAnimalOwners(this.props.params.id)});
       // id: AnimalStore.getAnimalId()
-    });
+
   }
 
-  // deleteOwner(id){
-  //   AnimalActions.deleteOwner(id);
-  //   }
   render() {
     if (this.state.animals.length !== 0) {
           let trs = this.state.animals.map((val ,index) => {
@@ -41,8 +37,12 @@ export default class AnimalOwners extends Component {
         return (
           <tr key={index + 1}>
             <td>{val.name}</td>
-            <td>{val.email}</td>
-            <td>{val.phoneNumber}</td>
+            <td>{val.type}</td>
+            <td>{val.age}</td>
+            <td>{val.image}</td>
+            <td><p>Name: {val.owner.name} </p>
+            <p>Email: {val.owner.email} </p>
+            <p>Phone Number: {val.owner.phoneNumber} </p> </td>
             <td>
           <button type="button" className="btn btn-danger btn-xs" onClick={this.deleteOwner.bind(null, val._id)}>Delete</button>
           </td>
@@ -55,9 +55,11 @@ export default class AnimalOwners extends Component {
             <thead>
               <tr>
                 <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Delete</th>
+                <th>Type</th>
+                <th>Age</th>
+                <th>image</th>
+                <th>Owner</th>
+
               </tr>
             </thead>
 

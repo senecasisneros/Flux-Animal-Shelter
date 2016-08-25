@@ -44,7 +44,7 @@ export default class AnimalDisplay extends Component {
             <td>{val.name}</td>
             <td>{val.type}</td>
             <td>{val.age}</td>
-            {/* <td>{val.owner}</td> */}
+
             <td>
             <img width="250"  height="250"src={val.image}/>
             </td>
@@ -62,7 +62,6 @@ export default class AnimalDisplay extends Component {
                 <th>Name</th>
                 <th>Type</th>
                 <th>Age</th>
-                {/* <th>Owner</th> */}
                 <th>Image</th>
                 <th>Delete</th>
               </tr>

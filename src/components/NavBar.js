@@ -7,6 +7,8 @@ export default class NavBar extends Component {
   }
 
   render() {
+    // let animals = this.props.animal
+    // let link = '/AnimalOwners/' + animals.id;
     return (
       <nav className="navbar navbar-default">
       <div className="container-fluid">
@@ -28,6 +30,7 @@ export default class NavBar extends Component {
       <li><Link to="AddAnimal">AddAnimal</Link></li>
       <li><Link to="Owners">Owners</Link></li>
       <li><Link to="AddOwners">AddOwners</Link></li>
+      {/* <li><Link to={link}>AnimalOwners</Link></li> */}
       <li><Link to="AnimalOwners">AnimalOwners</Link></li>
       </ul>
       </div>

@@ -3,10 +3,10 @@
 const mongoose = require('mongoose');
 
 const ownerSchema = new mongoose.Schema({
-  name: { type: String, required: true },
+  name: { type: String },
   email: { type: String },
   phoneNumber: { type: Number },
-  // createdAt: { type: Date, required: true, default: Date.now }
+  pet: { type: String }
 });
 
 
