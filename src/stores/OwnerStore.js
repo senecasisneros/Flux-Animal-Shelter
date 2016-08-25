@@ -1,16 +1,19 @@
 import { EventEmitter } from 'events'
 import AppDispatcher from '../AppDispatcher'
 
+
 let _owner = [];
 
 class OwnerStore extends EventEmitter {
   constructor() {
     super();
 
+    this.getAllOwners = this.getAllOwners.bind(this);
+
     AppDispatcher.register(action => {
       switch(action.type) {
         case 'RECEIVE_OWNERS':
-        _owner = action.owner;
+        _owner = action.owners;
         this.emit('CHANGE');
         break;
 
@@ -23,14 +26,17 @@ class OwnerStore extends EventEmitter {
 
         case 'CREATE_OWNER':
         var { owner } = action;
-        owner.createdAt = Date.now();
+
+        // owner._id = uuid();
+        // owner.createdAt = Date.now();
+
         _owner.push(owner);
         this.emit('CHANGE');
         break;
 
         case 'DELETE_OWNER':
-        var { owner } = action;
-        this._owners = this._owners.filter(i => i._id !== owner._id);
+        var { id } = action;
+        _owner = _owner.filter(i => i._id !== id);
         this.emit("CHANGE");
         break;
 
@@ -55,7 +61,7 @@ class OwnerStore extends EventEmitter {
     this.removeListener('CHANGE', cb);
   }
 
-  getAll() {
+  getAllOwners() {
     return _owner;
   }
 }

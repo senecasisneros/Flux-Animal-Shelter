@@ -17,6 +17,38 @@ router.route('/')
     });
   });
 
+///////////////////////////////////////////////////////
+router.get('/:id', (req, res) => {
+Owner.findById(req.params.id, (err, owner) => {
+  if(err || !owner) {
+    return res.status(400).send(err || "Owner not found");
+  }
+  res.send(owner)
+}).populate('owner')
+})
+
+
+router.put('/:ownerId/addOwner/:animalId', (req, res) => {
+Owner.findById(req.params.ownerId, (err, owner) => {
+  if(err || !owner) {
+    return res.status(400).send(err || "Owner not found");
+  }
+
+  let ownerId = req.params.ownerId;
+
+  owner.owner = ownerId;
+
+  owner.save((err, savedOwner) => {
+    return res.status(400).send(err || savedOwner);
+  })
+})
+})
+
+
+
+////////////////////////////////////////////////////////////////
+
+
 router.route('/:id')
   .get((req, res) => {
     Owner.findById(req.params.id, (err, owner) => {

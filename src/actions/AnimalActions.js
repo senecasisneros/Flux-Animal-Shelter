@@ -4,14 +4,28 @@ console.log('AnimalActions')
 
 const AnimalActions = {
   getAllAnimals: API.getAllAnimals,
-
   createAnimal(animal) {
     API.createAnimal(animal);
   },
-
   deleteAnimal(id) {
     API.deleteAnimal(id);
   },
+
+//////////////////////////
+
+  getAllOwners: API.getAllOwners,
+
+  createOwner(owner) {
+    API.createOwner(owner);
+  },
+  deleteOwner(id) {
+    API.deleteOwner(id);
+  },
+
+///////////////////////////////
+
+
+
 
 
   getOneAnimals(id) {

@@ -25,6 +25,27 @@ const ServerActions = {
 
 
 
+  receiveOwners(owners) {
+    AppDispatcher.dispatch({
+      type: 'RECEIVE_OWNERS',
+      owners
+    })
+  },
+  createOwner(owner) {
+    AppDispatcher.dispatch({
+      type: "CREATE_OWNER",
+      owner
+    })
+  },
+  deleteOwner(id) {
+    AppDispatcher.dispatch({
+      type: 'DELETE_OWNER',
+      id
+    })
+  },
+
+
+
 
   receiveOneAnimal(animal) {
     AppDispatcher.dispatch({

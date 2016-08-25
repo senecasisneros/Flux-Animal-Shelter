@@ -23,6 +23,28 @@ const API = {
     .catch(console.error);
   },
 
+///////////////////////////////////////////////////////
+  getAllOwners() {
+    axios.get('/api/owners')
+    .then(res => res.data)
+    .then(ServerActions.receiveOwners)
+    .catch(console.error);
+  },
+
+  createOwner(owner) {
+    axios.post('/api/owners', owner)
+    .then(res => res.data)
+    .then(ServerActions.createOwner)
+    .catch(console.error);
+  },
+
+  deleteOwner(id) {
+    axios.delete(`/api/owners/${id}`)
+    .then(res => res.data)
+    .then(ServerActions.deleteOwner(id))
+    .catch(console.error);
+  },
+
 
 
   getOneAnimal(id) {
