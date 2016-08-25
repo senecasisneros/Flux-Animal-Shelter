@@ -17,6 +17,7 @@ export default class AnimalDisplay extends Component {
     // }
 
     this._onChange = this._onChange.bind(this);
+    this.deleteAnimal = this.deleteAnimal.bind(this);
   }
 
   componentDidMount() {
@@ -28,82 +29,54 @@ export default class AnimalDisplay extends Component {
   }
 
   _onChange() {
-    this.setState({animals: AnimalStore.getAll()});
+    console.log('AnimalStore.getAll():', AnimalStore.getAll())
+    this.setState({ animals: AnimalStore.getAll() });
   }
 
-
+  deleteAnimal(id){
+    AnimalActions.deleteAnimal(id);
+    }
   render() {
-
+    console.log('this.state:', this.state);
     if (this.state.animals.length !== 0) {
           let trs = this.state.animals.map((val ,index) => {
 
-            return (
-              <tr key={index + 1}>
-                <td>{val.name}</td>
-                <td>{val.type}</td>
-                <td>{val.age}</td>
-                <td>
-                <img width="250"  height="250"src={val.image}/>
-                </td>
+        return (
+          <tr key={index + 1}>
+            <td>{val.name}</td>
+            <td>{val.type}</td>
+            <td>{val.age}</td>
+            {/* <td>{val.owner}</td> */}
+            <td>
+            <img width="250"  height="250"src={val.image}/>
+            </td>
+            <td>
+          <button type="button" className="btn btn-danger btn-xs" onClick={this.deleteAnimal.bind(null, val._id)}>Delete</button>
+          </td>
+          </tr>
+        )
+      });
+      return (
+        <div>
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Age</th>
+                {/* <th>Owner</th> */}
+                <th>Image</th>
+                <th>Delete</th>
               </tr>
-            )
-          });
-          return (
-            <div>
-              <Table striped bordered hover>
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Type</th>
-                    <th>Age</th>
-                    <th>Image</th>
-                  </tr>
-                </thead>
+            </thead>
 
-                <tbody>
-                    {trs}
-                </tbody>
-              </Table>
-            </div>
-          )
-        }
-        else return <div></div>
+            <tbody>
+                {trs}
+            </tbody>
+          </Table>
+        </div>
+      )
+    }
+    else return <div></div>
     }
 }
-
-
-
-//     let { animals } = this.props;
-//     animals = this.props.animals ? this.props.animals.map(animal => {
-//
-//       return (
-//         <Animal key={animal._id} animal={animal} />
-//       )
-//   })
-//     return (
-//       <table className="table">
-//         <thead>
-//           <tr>
-//             <th>Animal name</th>
-//             <th>Type of animal</th>
-//             <th>Age of animal</th>
-//           </tr>
-//         </thead>
-//         <tbody>
-//           {animal}
-//         </tbody>
-//       </table>
-//     )
-//   }
-// }
-
-
-
-// onDelete={onDelete} onEdit={onEdit}
-
-
-
-
-
-
-// onDelete={onDelete} onEdit={onEdit}

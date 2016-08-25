@@ -16,15 +16,19 @@ const ServerActions = {
       animal
     })
   },
-  receiveOneAnimal(animal) {
-    AppDispatcher.dispatch({
-      type: 'RECEIVE_ONE_ANIMAL',
-      id
-    })
-  },
   deleteAnimal(id) {
     AppDispatcher.dispatch({
       type: 'DELETE_ANIMAL',
+      id
+    })
+  },
+
+
+
+
+  receiveOneAnimal(animal) {
+    AppDispatcher.dispatch({
+      type: 'RECEIVE_ONE_ANIMAL',
       id
     })
   },

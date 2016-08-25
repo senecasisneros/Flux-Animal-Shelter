@@ -43,7 +43,7 @@ export default class AnimalList extends Component {
   AnimalActions.deleteAnimal(animal);
 }
 
-onEdit(animal) {
+  onEdit(animal) {
   AnimalActions.editAnimal(animal);
 }
 

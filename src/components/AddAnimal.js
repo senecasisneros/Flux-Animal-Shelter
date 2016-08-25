@@ -86,32 +86,3 @@ export default class AddAnimal extends Component {
     )
   }
 }
-
-
-
-
-
-
-
-
-////////// Code from Todo app /////////
-    //     let { animal } = this.state;
-    //
-    //     return (
-    //       <div>
-    //         <form onSubmit={this.submit}>
-    //           <div className="form-group">
-    //             <label>Animal</label>
-    //             <input type="text"
-    //                    className="form-control"
-    //                    placeholder="animal"
-    //                    value={animal}
-    //                    onChange={this.changeTaskInput}/>
-    //           </div>
-    //
-    //           <button type="submit" className="btn btn-default">Submit</button>
-    //         </form>
-    //       </div>
-    //     )
-    //   }
-    // }

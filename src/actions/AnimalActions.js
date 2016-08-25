@@ -9,14 +9,16 @@ const AnimalActions = {
     API.createAnimal(animal);
   },
 
+  deleteAnimal(id) {
+    API.deleteAnimal(id);
+  },
 
 
   getOneAnimals(id) {
     API.getOneAnimals(id);
   },
-  deleteAnimal(id) {
-    API.deleteAnimal(id);
-  },
+
+
   getOneScraper(obj) {
     API.getOneScraper(obj);
   },

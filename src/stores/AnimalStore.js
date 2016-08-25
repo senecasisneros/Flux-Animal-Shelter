@@ -36,8 +36,8 @@ class AnimalStore extends EventEmitter {
         break;
 
         case 'DELETE_ANIMAL':
-        var { animal } = action;
-        this._animals = this._animals.filter(i => i._id !== animal._id);
+        var { id } = action;
+        _animal = _animal.filter(i => i._id !== id);
         this.emit("CHANGE");
         break;
 
@@ -63,7 +63,6 @@ class AnimalStore extends EventEmitter {
   }
 
   getAll() {
-    console.log('getAll:', _animal);
     return _animal;
   }
 }
